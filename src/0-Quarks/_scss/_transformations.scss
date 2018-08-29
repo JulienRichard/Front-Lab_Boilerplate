@@ -1,0 +1,12 @@
+//////////////////////////////////////////////////////////
+// TRANSFORMATIONS
+//////////////////////////////////////////////////////////
+// -- ROTATE
+@mixin _rotate($degrees, $rotation) {
+  transform: rotate($degrees);
+}
+
+// -- FLIP
+@mixin _flip($horiz, $vert, $rotation) {
+  transform: scale($horiz, $vert);
+}

@@ -1,0 +1,215 @@
+//////////////////////////////////////////////////////////
+//  LISTS
+//////////////////////////////////////////////////////////
+$list-has-dividers: false;
+$list-has-bullets: true;
+
+// 	Unordered List (Ul)
+$list-bullet-icon-font: 'FontAwesome5Free';
+$list-bullet-icon-font-weight: 900;
+$list-bullet-icon-1: '\f054';
+$list-bullet-icon-2: '\f054';
+$list-bullet-icon-font-size: .8rem;
+$list-style-color: $body-font-color;
+$list-txt-color: $body-font-color;
+$list-nested-side-margin: $gutter;
+
+//	Ordered list (Ol)
+$list-ordered-count-size: 1.5rem;
+$list-ordered-count-color: $body-font-color;
+$list-ordered-txt-color: $list-txt-color;
+
+// Definition List (Dl)
+$list-definition-term-size: 18px;
+$list-definition-term-color: $body-font-color;
+$list-definition-txt-color: $list-txt-color;
+
+//////////////////////////////////////////////////////////
+//  LISTS > MARKUP
+//////////////////////////////////////////////////////////
+@mixin frontlab-lists {
+
+  // LISTS > Unordered (ul)
+  // ----------------------------
+  .list,
+  .wp-content-rendered ul {
+    // -- BASE
+    li {
+      position: relative;
+      line-height: inherit;
+      color: $list-txt-color;
+
+      ul li:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // -- BULLETS
+    @if $list-has-bullets == true {
+      li {
+        &::before {
+          display: inline-block;
+          font-family: $list-bullet-icon-font;
+          content: $list-bullet-icon-1;
+          font-weight: $list-bullet-icon-font-weight;
+          color: $list-style-color;
+          font-size: $list-bullet-icon-font-size;
+          padding-right: .5rem;
+          line-height: 1;
+          vertical-align: middle;
+        }
+
+        li::before {
+          content: $list-bullet-icon-2;
+        }
+      }
+    } @else {
+      // Bullets
+      &.has-bullets {
+        li {
+          &::before {
+            display: inline-block;
+            font-family: $list-bullet-icon-font;
+            font-weight: $list-bullet-icon-font-weight;
+            content: $list-bullet-icon-1;
+            color: $list-style-color;
+            font-size: 1rem;
+            padding-right: .5rem;
+            line-height: 1;
+          }
+
+          li::before {
+            content: $list-bullet-icon-2;
+          }
+        }
+      }
+    }
+
+    // -- DIVIDERS
+    @if $list-has-dividers == true {
+      li::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: rgba($list-style-color, .2);
+      }
+    } @else {
+      // Dividers
+      &.has-dividers {
+        li:not(:last-child)::after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 1px;
+          background-color: rgba($list-style-color, .1);
+        }
+      }
+    }
+  }
+
+  // LISTS > Horizontal List (ul)
+  // ----------------------------
+  ul.list-horizontal {
+    li {
+      display: inline-block;
+      margin-right: rhythm(.5);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // LISTS > Ordered (ol)
+  // ----------------------------
+  .list-ordered,
+  .wp-content-rendered ol {
+    counter-reset: li;
+    margin: 0;
+
+    li {
+      @include padding-block(.5, 0, .5, 2);
+      position: relative;
+      list-style: none;
+      color: $list-ordered-txt-color;
+
+      &::before {
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        left: .65rem;
+        font-size: $list-ordered-count-size;
+        color: $list-ordered-count-color;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: .5rem;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        border: 1px solid rgba($list-ordered-count-color, .5);
+        background: rgba($list-ordered-count-color, .1);
+      }
+    }
+
+    // SUBLEVEL
+    ol {
+      counter-reset: li;
+      @include margin-block(1, 0, 0, 0);
+      @include padding-block(0);
+
+      > li {
+        @include padding-block(0, 0, 0, 1);
+
+        &::before {
+          font-size: 1rem;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // LISTS > Definition
+  // ----------------------------
+  .list-definition {
+    // Definition Term
+    dt {
+      @include adjust-font-size-to($list-definition-term-size);
+      // font-weight: map-get($font-weight, bold);
+      color: $list-definition-term-color;
+    }
+
+    // Definition Content
+    dd {
+      @include margin-block(0, 0, 1, 0);
+      color: $list-definition-txt-color;
+    }
+
+    // Expand on medium
+    @include breakpoint(medium) {
+      @include flex-grid-row(nest);
+      @include flex-align(center);
+
+      dt {
+        @include flex-grid-column(2);
+      }
+
+      dd {
+        @include flex-grid-column(10);
+      }
+    }
+  }
+}

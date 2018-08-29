@@ -1,0 +1,68 @@
+//////////////////////////////////////////////////////////
+// BADGES
+//////////////////////////////////////////////////////////
+$badge-bg-color: $primary-color;
+$badge-txt-color: $white;
+$badge-radius: $global-radius;
+
+@mixin frontlab-badges {
+  .badge {
+    display: inline-block;
+    // font-weight: $badge-font-weight;
+    text-align: center;
+    vertical-align: top;
+    background: $badge-bg-color;
+    color: $badge-txt-color;
+    border-radius: $badge-radius;
+
+    // -- SIZES
+    // Default (small)
+    @include output-rhythm(height, rhythm(1));
+    @include output-rhythm(width, rhythm(1));
+    @include padding-block(0);
+    font-size: .8rem;
+
+    // Medium
+    &.is-medium {
+      @include output-rhythm(height, rhythm(1.5));
+      @include output-rhythm(width, rhythm(1.5));
+      @include padding-block(.25, 0, .25, 0);
+      @include margin-block(0, 0, .5, 0);
+      font-size: 1rem;
+    }
+
+    // Large
+    &.is-large {
+      @include output-rhythm(height, rhythm(2));
+      @include output-rhythm(width, rhythm(2));
+      @include padding-block(.5, 0, .5, 0);
+      @include margin-block(0, 0, 1, 0);
+      font-size: 1.5rem;
+    }
+
+    // -- COLORS
+    @each $name, $color in $base-palette {
+      @if $name != primary {
+        &.is-#{$name} {
+          background: $color;
+          color: mix($button-color, $white, 10%);
+
+          @if $name == light {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    @each $name, $color in $helpers-palette {
+      &.is-#{$name} {
+        background: $color;
+        color: mix($button-color, $white, 10%);
+      }
+    }
+
+    // -- ROUNDED
+    &.is-rounded {
+      border-radius: 100%;
+    }
+  }
+}

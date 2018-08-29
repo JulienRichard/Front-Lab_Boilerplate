@@ -1,0 +1,143 @@
+//////////////////////////////////////////////////////////
+//  TYPOGRAPHY BASE
+//////////////////////////////////////////////////////////
+@mixin frontlab-text-base {
+  // -- Paragraphs
+  p {
+    text-rendering: $paragraph-text-rendering;
+    margin-bottom: rhythm(1);
+  }
+
+  // -- Emphasized text
+  em,
+  i {
+    font-style: italic;
+    line-height: inherit;
+  }
+
+  // -- Strong text
+  b,
+  strong {
+    font-family: 'blogger_medium';
+    // font-weight: map-get($font-weight, semibold);
+    line-height: 1;
+  }
+
+  // -- Small text
+  small {
+    font-size: $small-font-size;
+    line-height: 1;
+  }
+
+  // -- Headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $header-color;
+    text-rendering: $header-text-rendering;
+    margin: 0;
+  }
+
+  // -- Links
+  a {
+    color: $anchor-color;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      color: $anchor-color-hover;
+    }
+
+    img {
+      border: 0;
+    }
+  }
+
+  // -- List items
+  li {
+    font-size: inherit;
+  }
+
+  // -- Unordered lists
+  ul {
+    list-style-type: none;
+  }
+
+  // -- Ordered lists
+  ol {
+    margin-left: $list-side-margin;
+  }
+
+  // -- Nested unordered/ordered lists
+  ol,
+  ul {
+    & & {
+      margin-left: $list-nested-side-margin;
+      margin-bottom: 0;
+    }
+  }
+
+  // -- Blockquotes
+  blockquote {
+    @include padding-block(1, 0, 1, 1);
+    @include margin-block(0, 0, 1, 0);
+    border-left: $blockquote-border;
+    font-weight: normal;
+
+    &,
+    p {
+      color: $blockquote-color;
+      margin-bottom: 0;
+    }
+  }
+
+  // -- Citations
+  cite {
+    @include padding(top, .5);
+    display: block;
+    color: $cite-color;
+    font-weight: $cite-font-weight;
+
+    &::before {
+      font-family: 'FontAwesome5Free';
+      content: $cite-quote-icon;
+      margin-right: .5em;
+    }
+  }
+
+  // -- Abbreviations
+  abbr {
+    color: $body-font-color;
+    cursor: help;
+    border-bottom: $abbr-underline;
+    text-decoration: none;
+  }
+
+  abbr[title] {
+    border-bottom: $abbr-underline;
+  }
+
+  // -- Code
+  code {
+    font-family: $code-font-family;
+    font-weight: normal;
+    color: $code-color;
+    background-color: $code-background;
+    border: $code-border;
+  }
+
+  // -- Keystrokes
+  kbd {
+    padding: rem-calc(2 4 0);
+    margin: 0;
+    line-height: 1;
+    background-color: $keystroke-background;
+    color: $keystroke-color;
+    font-family: $keystroke-font;
+  }
+}

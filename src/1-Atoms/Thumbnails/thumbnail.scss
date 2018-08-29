@@ -1,0 +1,34 @@
+//////////////////////////////////////////////////////////
+//  THUMBNAIL
+//////////////////////////////////////////////////////////
+// Default
+$thumbnail--bg-color: rgba($white, .05);
+$thumbnail--border: 0;
+$thumbnail--border-radius: $global-radius;
+$thumbnail--box-shadow: $global-box-shadow;
+
+@mixin _thumbnail {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: rhythm(1);
+  background-color: $thumbnail--bg-color;
+  border: $thumbnail--border;
+  border-radius: $thumbnail--border-radius;
+  box-shadow: $thumbnail--box-shadow;
+}
+
+//////////////////////////////////////////////////////////
+//  THUMBNAIL > MARKUP
+//////////////////////////////////////////////////////////
+@mixin frontlab-thumbnails {
+  img.thumbnail,
+  figure.thumbnail {
+    @include _thumbnail;
+
+    figcaption {
+      font-size: $small-font-size;
+      padding: 0 rhythm(.5);
+    }
+  }
+}

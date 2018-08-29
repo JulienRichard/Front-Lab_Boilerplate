@@ -1,0 +1,72 @@
+// GLOBAL STYLES
+// --------------------------
+
+// WordPress WYSIWYG Editor Styles
+// --------------------------
+.alignleft,
+img.alignleft {
+  margin-right: rhythm(1);
+  display: inline;
+  float: left;
+  max-width: 50%;
+}
+
+.alignright,
+img.alignright {
+  margin-left: rhythm(1);
+  display: inline;
+  float: right;
+  max-width: 50%;
+}
+
+.aligncenter,
+img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both;
+}
+
+// POSITION HELPERS
+// -------------------
+.is-center-y {
+  position: absolute;
+  @include center(y);
+}
+
+.is-center-xy {
+  position: absolute;
+  @include center(xy);
+}
+
+// ELEMENTS HELPERS
+// -------------------
+a.is-disabled {
+  pointer-events: none;
+  opacity: .5;
+}
+
+
+// TRANSFORMS HELPERS
+// -------------------
+// -- ROTATE
+.is-rotate-90 {
+  @include _rotate(90deg, 1);
+}
+
+.is-rotate-180 {
+  @include _rotate(180deg, 2);
+}
+
+.is-rotate-270 {
+  @include _rotate(270deg, 3);
+}
+
+// -- FLIP
+.is-flip-horizontal {
+  @include _flip(-1, 1, 0);
+}
+
+.is-flip-vertical {
+  @include _flip(1, -1, 2);
+}

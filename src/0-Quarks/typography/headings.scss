@@ -1,0 +1,191 @@
+//////////////////////////////////////////////////////////
+//  TYPOGRAPHY HEADINGS
+//////////////////////////////////////////////////////////
+@mixin frontlab-text-headings {
+  // -- H# GLOBAL STYLES
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // Icons
+    i {
+      margin-right: rhythm(.75);
+      line-height: inherit;
+
+      // hack for Dripicons
+      &[class*=' di-'],
+      &[class^=di-] {
+        vertical-align: middle;
+        margin-top: -6px;
+      }
+    }
+
+    svg {
+      margin-top: - 8px;
+    }
+
+    // Centered
+    &.text-center {
+      i,
+      small {
+        display: block;
+      }
+
+      i {
+        margin: 0;
+      }
+    }
+
+    // Subtitle
+    small,
+    .subtitle {
+      font-family: $font-family-light;
+      line-height: 1;
+      opacity: .75;
+    }
+
+    .subtitle {
+      display: block;
+      line-height: inherit;
+    }
+
+    // Underlined
+    &.is-underlined {
+      margin-bottom: rhythm(1);
+    }
+  }
+
+  // -- H# SIZES
+  @each $breakpoint, $headers in $headers-size {
+    @include breakpoint($breakpoint) {
+      @each $header, $header-size in $headers {
+        $font-size-temp: 1rem;
+
+        #{$header},
+        .like-#{$header} {
+          @include adjust-font-size-to($header-size);
+        }
+      }
+    }
+  }
+
+  // -- H# Font family
+  @each $header, $font in $headers-fonts {
+    #{$header},
+    .like-#{$header} {
+      font-family: map-get($headers-fonts, $header);
+    }
+  }
+
+  // -- H# COLORS
+  @each $header, $color in map-get($headers-color, default) {
+    #{$header},
+    .like-#{$header} {
+      color: $color;
+    }
+  }
+
+  // -- H# INDIVIDUAL STYLES
+  // H1
+  h1,
+  .like-h1 {
+    padding: rhythm(.5) 0 rhythm(1.5) 0;
+
+    &.text-center i {
+      @include adjust-font-size-to(90px);
+    }
+
+    &.is-underlined {
+      box-shadow: inset 0 rhythm(-.25) 0 0 map-get(map-get($headers-color, default), h1);
+    }
+  }
+
+  // H2
+  h2,
+  .like-h2 {
+    padding: rhythm(.5) 0 rhythm(.5) 0;
+
+    &.text-center i {
+      @include adjust-font-size-to(70px);
+    }
+
+    &.is-underlined {
+      box-shadow: inset 0 rhythm(-.2) 0 0 map-get(map-get($headers-color, default), h2);
+    }
+
+    small,
+    .subtitle {
+      line-height: rhythm(2);
+    }
+  }
+
+  // H3
+  h3,
+  .like-h3 {
+    @include rhythm(0, .5, .5, 0);
+
+    &.text-center i {
+      @include adjust-font-size-to(50px);
+    }
+
+    &.is-underlined {
+      box-shadow: inset 0 rhythm(-.15) 0 0 map-get(map-get($headers-color, default), h3);
+    }
+  }
+
+  // H4
+  h4,
+  .like-h4 {
+    &.text-center i {
+      @include adjust-font-size-to(40px);
+    }
+
+    small,
+    .subtitle {
+      line-height: rhythm(1);
+      margin-bottom: rhythm(1);
+    }
+
+    &.is-underlined {
+      box-shadow: inset 0 rhythm(-.1) 0 0 map-get(map-get($headers-color, default), h4);
+    }
+  }
+
+  // H5
+  h5,
+  .like-h5 {
+    @include rhythm(0, .5, .5, 0);
+
+    .icon {
+      margin-right: rhythm(.5);
+    }
+
+    &.text-center i {
+      @include adjust-font-size-to(30px);
+    }
+
+    &.is-underlined {
+      box-shadow: inset 0 -2px 0 0 map-get(map-get($headers-color, default), h5);
+    }
+  }
+
+  // H6
+  h6,
+  .like-h6 {
+    @include rhythm(0, .5, .5, 0);
+
+    .icon {
+      margin-right: rhythm(.5);
+    }
+
+    &.text-center i {
+      @include adjust-font-size-to(25px);
+    }
+
+    &.is-underlined {
+      box-shadow: inset 0 -1px 0 0 map-get(map-get($headers-color, default), h6);
+    }
+  }
+}

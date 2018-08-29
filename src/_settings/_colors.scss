@@ -1,0 +1,148 @@
+//////////////////////////////////////////////////////////
+// SETTINGS > Colors
+//////////////////////////////////////////////////////////
+// -- GREY-SCALE
+$white: #fefefe;
+$light-gray: #eee;
+$medium-gray: #b2b2b2;
+$dark-gray: #494a4a;
+$black: #1b1b1b;
+
+// -- PRIMARY
+$primary-color: #5873ba;
+$primary-color-lighten: mix($primary-color, $white, 80%);
+$primary-color-darken: mix($primary-color, $black, 80%);
+
+// -- SECONDARY
+$secondary-color: #e55a5d;
+$secondary-color-lighten: mix($secondary-color, $white, 80%);
+$secondary-color-darken: mix($secondary-color, $black, 80%);
+
+// -- HIGHLIGHT
+$highlight-color: #f99820;
+$highlight-color-lighten: mix($highlight-color, $white, 80%);
+$highlight-color-darken: mix($highlight-color, $black, 80%);
+
+// HELPERS COLORS
+// ---------------------
+$success-color: #78ab30;
+$warning-color: #f39c12;
+$info-color: #2d7091;
+$error-color: #c0392b;
+
+// SOCIAL COLORS
+// ---------------------
+$social-facebook: #2f4b93;
+$social-twitter: #00bdef;
+$social-google: #dc4e41;
+$social-linkedin: #0072b5;
+$social-pinterest: #cb2028;
+
+//////////////////////////////////////////////////////////
+//  PALETTES
+//////////////////////////////////////////////////////////
+// -- BASE Palette
+$base-palette: (
+  primary: $primary-color,
+  secondary: $secondary-color,
+  highlight: $highlight-color,
+  light: $white,
+  dark: $black
+);
+
+// -- FULL Palette
+$full-palette: (
+  primary: $primary-color,
+  primary-lighten: $primary-color-lighten,
+  primary-darken: $primary-color-darken,
+  secondary: $secondary-color,
+  secondary-lighten: $secondary-color-lighten,
+  secondary-darken: $secondary-color-darken,
+  highlight: $highlight-color,
+  highlight-lighten: $highlight-color-lighten,
+  highlight-darken: $highlight-color-darken,
+  light: $white,
+  light-gray: $light-gray,
+  medium-gray: $medium-gray,
+  dark-gray: $dark-gray,
+  dark: $black
+);
+
+// -- HELPERS Palette
+$helpers-palette: (
+  info: $info-color,
+  success: $success-color,
+  warning: $warning-color,
+  error: $error-color
+);
+
+// -- SOCIAL Palette
+$social-palette: (
+  facebook: $social-facebook,
+  twitter: $social-twitter,
+  google: $social-google
+);
+
+// -- FOUNDATION Palette
+$foundation-palette: (
+  primary: $primary-color,
+  secondary: $secondary-color,
+  success: $success-color,
+  warning: $warning-color,
+  alert: $error-color
+);
+
+//////////////////////////////////////////////////////////
+// OTHER COLORS
+//////////////////////////////////////////////////////////
+// -- TECHNO COLORS
+$html-color: #f1662a;
+$css-color: #33a9dc;
+$javascript-color: #f0bf26;
+$vue-color: #40b581;
+
+// -- FLAT UI COLORS
+// https://flatuicolors.com/palette/defo
+$gossip: #87d37c;
+$shamrock: #2ecc71;
+$emerald: #2ecc71;
+$nephritis: #27ae60;
+$turquoise: #1abc9c;
+$green-sea: #16a085;
+$teal: #008080;
+$oracle: #2f7075;
+$aqua: #047b8d;
+$peter-river: #3498db;
+$steelblue: #4682b4;
+$belize-hole: #2980b9;
+$blumine: #18587a;
+$wet-asphalt: #34495e;
+$midnight-blue: #2c3e50;
+$cello: #1a3558;
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
+$sun-flower: #f1c40f;
+$orange: #f39c12;
+$carrot: #e67e22;
+$pumpkin: #d35400;
+$alizarin: #e74c3c;
+$pomegranate: #c0392b;
+$well-read: #b33935;
+$clouds: #ecf0f1;
+$silver: #bdc3c7;
+$concrete: #95a5a6;
+$asbestos: #7f8c8d;
+
+// -- TOMORROW NIGHT COLORS
+// https://github.com/chriskempson/tomorrow-theme
+$tomorrow-background: #fff;
+$tomorrow-current-line: #efefef;
+$tomorrow-selection: #d6d6d6;
+$tomorrow-foreground: #4d4d4c;
+$tomorrow-red: #c82829;
+$tomorrow-orange: #f5871f;
+$tomorrow-yellow: #eab700;
+$tomorrow-green: #718c00;
+$tomorrow-aqua: #3e999f;
+$tomorrow-blue: #4271ae;
+$tomorrow-purple: #8959a8;

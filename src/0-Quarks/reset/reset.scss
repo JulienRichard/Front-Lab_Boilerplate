@@ -1,0 +1,25 @@
+//////////////////////////////////////////////////////////
+//  RESET STYLES
+//////////////////////////////////////////////////////////
+@import 'eric-meyer-reset';
+@import 'forms-reset';
+@import 'custom-reset';
+
+@mixin frontlab-reset {
+  @include _eric_meyer_reset;
+  @include _forms-reset;
+  @include _custom-reset;
+
+  // Default body styles
+  body {
+    font-family: $body-font-family;
+    color: $body-font-color;
+    background: $app-background-gradient;
+
+    // Selection
+    *::selection {
+      color: $primary-color;
+      background: $white;
+    }
+  }
+}

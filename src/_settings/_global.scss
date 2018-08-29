@@ -1,0 +1,12 @@
+//////////////////////////////////////////////////////////
+// SETTINGS > Global
+//////////////////////////////////////////////////////////
+$app-background-gradient: linear-gradient(125deg, #16336e 0%, #632882 100%) no-repeat fixed;
+$app-background-image--small: url('assets/img/layout/bg1-small.png');
+$app-background-image--medium: url('assets/img/layout/bg1-medium.png');
+$app-background-image--large: url('assets/img/layout/bg1-large.png');
+$app-background-image--xlarge: url('assets/img/layout/bg1-xlarge.png');
+
+$global-mask-gradient: linear-gradient(135deg, rgba(#16336e, .9) 0%, rgba(#632882, .9) 100%);
+$global-radius: .25rem;
+$global-box-shadow: 0 0 2.5rem rgba($black, .35);

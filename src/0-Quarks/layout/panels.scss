@@ -1,0 +1,68 @@
+//////////////////////////////////////////////////////////
+//  PANELS
+//////////////////////////////////////////////////////////
+@mixin _panel($size: default) {
+  position: relative;
+  @include padding-block(map-get($panel-sizes, $size));
+}
+
+// -- MARKUP
+@mixin frontlab-panels {
+  .panel {
+    // default
+    @include _panel;
+
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child {
+      margin-top: - rhythm(1);
+    }
+
+    > h4:first-child {
+      margin-top: - rhythm(.5);
+      margin-bottom: rhythm(.5);
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    // -- SIZES
+    @include padding-block(map-get($panel-sizes, default));
+    @each $size, $value in $panel-sizes {
+      @if $size != default {
+        &.is-#{$size} {
+          @include padding-block($value);
+        }
+      }
+    }
+
+    &.is-small {
+      > h1:first-child,
+      > h2:first-child,
+      > h3:first-child {
+        margin-top: - rhythm(.5);
+      }
+    }
+
+    // -- COLORS
+    @each $name, $color in $full-palette {
+      &.is-#{$name} {
+        color: smart-scale($color, 40%);
+        background-color: $color;
+      }
+    }
+    @each $name, $color in $helpers-palette {
+      &.is-#{$name} {
+        color: smart-scale($color, 40%);
+        background-color: $color;
+      }
+    }
+    @each $name, $color in $social-palette {
+      &.is-#{$name} {
+        color: smart-scale($color, 40%);
+        background-color: $color;
+      }
+    }
+  }
+}

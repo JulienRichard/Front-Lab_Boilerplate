@@ -1,0 +1,20 @@
+///////////////////////////////////////////////////////////////////////////////
+// ~ QUARKS > GLOBAL (Settings & Tools)
+// This file gets imported overall (sass variables & mixins)
+///////////////////////////////////////////////////////////////////////////////
+// Import Scss Settings
+@import '../_settings/colors';
+@import '../_settings/global';
+@import '../_settings/layout';
+@import '../_settings/typography';
+
+// Import Foundation Mixins
+@import '~foundation-sites/scss/foundation';
+
+// Import Front-Lab Mixins
+@import '_scss/rhythm';
+@import '_scss/layout';
+@import '_scss/elements';
+@import '_scss/transitions';
+@import '_scss/transformations';
+@import '_scss/animations';

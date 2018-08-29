@@ -1,0 +1,163 @@
+//////////////////////////////////////////////////////////
+// ICONS
+//////////////////////////////////////////////////////////
+@mixin frontlab-icons {
+  .icon {
+    display: inline-block;
+    font-size: inherit;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    text-transform: none;
+    speak: none;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    vertical-align: baseline;
+
+    // -- SIZES
+    &.is-lg {
+      @include adjust-font-size-to(4rem / 3);
+
+      &.is-align-left {
+        margin-right: rhythm(.5);
+      }
+
+      &.is-align-right {
+        margin-left: rhythm(.5);
+      }
+    }
+
+    &.is-2x {
+      @include adjust-font-size-to(2rem);
+
+      &.is-align-left {
+        margin-right: rhythm(.5);
+      }
+
+      &.is-align-right {
+        margin-left: rhythm(.5);
+      }
+    }
+
+    &.is-3x {
+      @include adjust-font-size-to(2rem);
+
+      &.is-align-left {
+        margin-right: rhythm(1);
+      }
+
+      &.is-align-right {
+        margin-left: rhythm(1);
+      }
+    }
+
+    &.is-4x {
+      @include adjust-font-size-to(4rem);
+
+      &.is-align-left {
+        margin-right: rhythm(1.25);
+      }
+
+      &.is-align-right {
+        margin-left: rhythm(1.25);
+      }
+    }
+
+    &.is-5x {
+      @include adjust-font-size-to(6rem);
+
+      &.is-align-left {
+        margin-right: rhythm(1.5);
+      }
+
+      &.is-align-right {
+        margin-left: rhythm(1.5);
+      }
+    }
+
+    // -- FIXED WIDTH
+    &.is-fw {
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      width: 2em;
+    }
+
+    // -- ALIGNMENTS
+    &.is-align-left {
+      margin-right: rhythm(.25);
+    }
+
+    &.is-align-right {
+      margin-left: rhythm(.25);
+    }
+
+    &.is-align-top {
+      display: block;
+      text-align: center;
+      line-height: rhythm(1);
+    }
+
+    // -- PULL
+    &.is-pull-left,
+    &.is-pull-right {
+      margin-top: -1px;
+    }
+
+    &.is-pull-left {
+      float: left;
+      margin-right: .3em;
+    }
+
+    &.is-pull-right {
+      float: right;
+      margin-left: .3em;
+    }
+  }
+
+  // -- ICONS STACK
+  .icon-stack {
+    position: relative;
+    display: inline-block;
+    width: $base-line-height;
+    height: $base-line-height;
+    line-height: $base-line-height;
+    vertical-align: middle;
+
+    .is-stack-1x,
+    .is-stack-2x {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .is-stack-1x {
+      line-height: inherit;
+      font-size: 1em;
+    }
+
+    .is-stack-2x {
+      font-size: 2em;
+    }
+
+    .is-inverse {
+      color: $white;
+    }
+  }
+
+  // -- ICONS SVG
+  .icon.is-svg {
+    height: 1em;
+    line-height: inherit;
+    vertical-align: middle;
+    width: auto;
+
+    &.is-align-top {
+      width: 100%;
+      height: rhythm(1);
+    }
+  }
+}

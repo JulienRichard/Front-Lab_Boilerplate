@@ -1,0 +1,147 @@
+//////////////////////////////////////////////////////////
+// FORMS > Text Fields
+//////////////////////////////////////////////////////////
+$form-label--color: $white;
+$form-label-checked--color: $secondary-color;
+$form-input--color: $white;
+$form-placeholder--color: rgba($form-input--color, .8);
+$form-error--color: $highlight-color;
+
+@mixin frontlab-textfields {
+  // -- TEXT FIELD
+  .form-input {
+    position: relative;
+    color: $white;
+    margin-bottom: rhythm(1);
+  }
+
+  // -- LABEL
+  .form-input-label {
+    position: absolute;
+    top: rhythm(.5);
+
+    pointer-events: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $form-label--color;
+    transform-origin: left center;
+    transition: top .3s ease, transform .3s ease, color .3s linear, opacity .3s linear;
+    will-change: top, transform, color, opacity;
+  }
+
+  // -- INPUT
+  .form-input-field {
+    outline: none;
+    height: rhythm(2);
+    display: block;
+    background: none;
+    border: 0 solid transparent;
+    width: 100%;
+    color: $form-input--color;
+    box-shadow: none;
+    opacity: 0;
+    transition: opacity .3s ease;
+    will-change: opacity;
+  }
+
+  // -- BAR
+  .form-input-bar {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba($form-label--color, .35);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: $form-label-checked--color;
+      transition: left .3s ease, width .3s ease;
+      will-change: transform;
+    }
+  }
+
+  // -- TEXTAREA
+  textarea.form-input-field {
+    height: auto;
+    min-height: rhythm(5);
+    max-width: 100%;
+    padding: rhythm(.5) 0;
+  }
+
+  // -- PLACEHOLDER
+  /* stylelint-disable */
+  .form-input-field::-ms-input-placeholder,
+  .form-input-field::-moz-placeholder,
+  .form-input-field::-webkit-input-placeholder
+  .form-input-field::placeholder {
+    color: $form-placeholder--color;
+  }
+  /* stylelint-enable */
+
+  // -- FOCUS & CHECKED STATE
+  // Bar
+  .form-input-field:focus ~ .form-input-bar::after {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  // Label
+  .form-input-field:focus ~ .form-input-label {
+    color: $form-label-checked--color;
+  }
+
+  .form-input-field.-hasvalue,
+  .form-input-field:focus {
+    opacity: 1;
+  }
+
+  // HAS VALUE
+  .form-input-field.-hasvalue ~ .form-input-label,
+  .form-input-field:focus ~ .form-input-label,
+  select.form-input-field:not(:placeholder-shown) ~ .form-input-label,
+  input.form-input-field:not(:placeholder-shown) ~ .form-input-label,
+  textarea.form-input-field:not(:placeholder-shown) ~ .form-input-label {
+    transform: translateY(-100%) scale(.9);
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  select.form-input-field:not(:placeholder-shown),
+  input.form-input-field:not(:placeholder-shown),
+  textarea.form-input-field:not(:placeholder-shown) {
+    opacity: 1;
+  }
+
+  // ERROR STATE
+  // message
+  .form-error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: $small-font-size;
+    color: $form-error--color;
+  }
+
+  // Bar color
+  .form-input.has-error .form-input-bar::before {
+    background-color: $form-error--color;
+  }
+}

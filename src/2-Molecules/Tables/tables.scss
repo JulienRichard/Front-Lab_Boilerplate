@@ -1,0 +1,267 @@
+//////////////////////////////////////////////////////////
+//  TABLES
+//////////////////////////////////////////////////////////
+$table-background: transparent;
+
+$table-divider-height: rem-calc(1px);
+$table-divider-color: rgba($white, .25);
+
+$table-row-hover: rgba($primary-color, .125);
+$table-row-stripe-hover: $table-row-hover;
+$table-row-transition: all .3s ease;
+
+$table-is-striped: true;
+$table-stripe: even;
+$table-striped-background: transparent;
+
+$show-header-for-stacked: false;
+$table-head-background: $primary-color;
+$table-head-font-color: $white;
+
+$table-foot-background: $primary-color;
+$table-foot-font-color: $white;
+
+// TABLE STRIPE
+// ---------------------
+@mixin _table-stripe($stripe: $table-stripe) {
+  tr {
+    @if $stripe == even {
+      &:nth-child(even) {
+        background-color: $table-striped-background;
+      }
+    } @else if $stripe == odd {
+      &:nth-child(odd) {
+        background-color: $table-striped-background;
+      }
+    }
+  }
+}
+
+// TABLE UNSTRIPE
+// ---------------------
+@mixin _table-unstripe() {
+  tr {
+    border-bottom: 0;
+    background-color: $table-background;
+  }
+}
+
+// TABLE CHILDREN STYLES
+// ---------------------
+@mixin _table-children-styles(
+  $stripe: $table-stripe,
+  $is-striped: $table-is-striped
+) {
+  thead,
+  tbody,
+  tfoot {
+    background-color: $table-background;
+  }
+
+  // Caption
+  caption {
+    padding: $table-padding;
+    font-weight: $global-weight-bold;
+  }
+
+  // Table head
+  thead {
+    background: $table-head-background;
+    color: $table-head-font-color;
+  }
+
+  // Table foot
+  tfoot {
+    background: $table-foot-background;
+    color: $table-foot-font-color;
+  }
+
+  // Table head and foot
+  thead,
+  tfoot {
+    tr {
+      background: transparent;
+    }
+
+    // Cells within head and foot
+    th,
+    td {
+      padding: rhythm(.5);
+      font-weight: $global-weight-bold;
+      text-align: left;
+    }
+  }
+
+  // Table rows
+  tbody {
+    tr {
+      transition: $table-row-transition;
+
+      border-bottom: $table-divider-height solid $table-divider-color;
+
+      &:last-child {
+        border-bottom: 1px solid transparent;
+      }
+    }
+
+    th,
+    td {
+      padding: rhythm(.5);
+    }
+  }
+
+  @if $is-striped == true {
+    tbody {
+      @include _table-stripe($stripe);
+    }
+
+    &.unstriped {
+      tbody {
+        @include _table-unstripe();
+        background-color: $table-background;
+      }
+    }
+  } @else if $is-striped == false {
+    tbody {
+      @include _table-unstripe();
+    }
+
+    &.striped {
+      tbody {
+        @include _table-stripe($stripe);
+      }
+    }
+  }
+}
+
+// GLOBAL TABLE STYLE
+// ---------------------
+@mixin _table(
+  $stripe: $table-stripe,
+  $nest: false
+) {
+  width: 100%;
+  border-radius: $global-radius;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: rhyrhm(1);
+
+  @if $nest {
+    @include _table-children-styles($stripe);
+  } @else {
+    @at-root {
+      @include _table-children-styles($stripe);
+    }
+  }
+}
+
+// TABLE SCROLL
+// ---------------------
+@mixin _table-scroll {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+// TABLE HOVER
+// ---------------------
+@mixin _table-hover {
+  tbody tr {
+    &:hover {
+      background-color: $table-row-hover;
+    }
+  }
+
+  @if $table-is-striped == true {
+    @if($table-stripe == even) {
+      &:not(.unstriped) tr:nth-of-type(even):hover {
+        background-color: $table-row-stripe-hover;
+      }
+    } @elseif($table-stripe == odd) {
+      &:not(.unstriped) tr:nth-of-type(odd):hover {
+        background-color: $table-row-stripe-hover;
+      }
+    }
+  } @else if $table-is-striped == false {
+    @if($table-stripe == even) {
+      &.striped tr:nth-of-type(even):hover {
+        background-color: $table-row-stripe-hover;
+      }
+    } @elseif($table-stripe == odd) {
+      &.striped tr:nth-of-type(odd):hover {
+        background-color: $table-row-stripe-hover;
+      }
+    }
+  }
+}
+
+// TABLE STACK
+// ---------------------
+@mixin _table-stack($header: $show-header-for-stacked) {
+  @if $header {
+    thead {
+      th:first-child {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+    }
+  } @else {
+    thead {
+      display: none;
+    }
+  }
+
+  tfoot {
+    display: none;
+  }
+
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  td {
+    border-top: 0;
+  }
+}
+
+
+//////////////////////////////////////////////////////////
+//  TABLES > MARKUP
+//////////////////////////////////////////////////////////
+@mixin frontlab-tables {
+  table,
+  .table {
+    @include _table($nest: false);
+    @include _table-hover;
+
+    // Stack on small
+    @include breakpoint(small down) {
+      @include _table-stack;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &.is-stacked {
+      @include _table-stack;
+    }
+
+    &.scroll {
+      @include _table-scroll;
+    }
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+
+    table {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+//////////////////////////////////////////////////////////
+// FORMS > Radio & Checkbox
+//////////////////////////////////////////////////////////
+$form-radiocheckbox-icon--color: $body-font-color;
+$form-radiocheckbox-icon-hover--color: $secondary-color;
+$form-radiocheckbox-icon-checked--color: $highlight-color;
+
+$form-radiocheckbox-label--color: $body-font-color;
+$form-radiocheckbox-label-hover--color: $secondary-color;
+$form-radiocheckbox-label-checked--color: $highlight-color;
+
+@mixin frontlab-radiocheckbox {
+  // -- CHECKBOX & RADIO
+  .form-checkbox,
+  .form-radio {
+    padding: rhythm(.5) 0;
+
+    label {
+      position: relative;
+      cursor: pointer;
+      padding-left: 2rem;
+      text-align: left;
+      color: $form-radiocheckbox-label--color;
+      display: block;
+      transition: color .3s ease;
+    }
+
+    input {
+      width: auto;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  // CHECKBOX
+  // -----------------------
+  .form-checkbox {
+    position: relative;
+
+    i {
+      color: $form-radiocheckbox-icon--color;
+      position: absolute;
+      @include center(y);
+      left: 0;
+      width: 1rem;
+      height: 1rem;
+      z-index: 0;
+      border: .125rem solid currentColor;
+      border-radius: .0625rem;
+      transition: all .3s ease;
+
+      &::before,
+      &::after {
+        position: absolute;
+        height: 0;
+        width: .2rem;
+        background-color: $form-radiocheckbox-icon-checked--color;
+        display: block;
+        transform-origin: left top;
+        border-radius: .25rem;
+        content: '';
+        transition: opacity .3s ease, height 0s linear .3s;
+        opacity: 0;
+      }
+
+      &::before {
+        top: .65rem;
+        left: .38rem;
+        transform: rotate(-135deg);
+      }
+
+      &::after {
+        top: .3rem;
+        left: 0;
+        transform: rotate(-45deg);
+      }
+    }
+
+    // Hover
+    label:hover {
+      color: $form-radiocheckbox-label-hover--color;
+
+      i {
+        color: $form-radiocheckbox-icon-hover--color;
+      }
+    }
+
+    // Checked
+    input:checked {
+      ~ i {
+        color: $form-radiocheckbox-icon-checked--color;
+      }
+
+      ~ i::after,
+      ~ i::before {
+        opacity: 1;
+        transition: height .3s ease;
+      }
+
+      ~ i::after {
+        height: .5rem;
+      }
+
+      ~ i::before {
+        height: 1.2rem;
+        transition-delay: .3s;
+      }
+    }
+  }
+
+  // RADIO
+  // -----------------------
+  .form-radio {
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      display: block;
+      font-size: 1rem;
+      user-select: none;
+      color: $form-radiocheckbox-icon--color;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: .25rem;
+        width: 1rem;
+        height: 1rem;
+        transition: all .3s ease;
+        border-radius: 50%;
+        border: .125rem solid currentColor;
+      }
+
+      &::after {
+        transform: scale(0);
+        background-color: $form-radiocheckbox-icon-checked--color;
+        border-color: $form-radiocheckbox-icon-checked--color;
+      }
+    }
+
+    // Hover
+    label:hover {
+      color: $form-radiocheckbox-label-hover--color;
+
+      i {
+        color: $form-radiocheckbox-icon-hover--color;
+      }
+    }
+
+    // Checked
+    input:checked {
+      ~ i::after {
+        transform: scale(.5);
+      }
+
+      ~ i::before {
+        color: $form-radiocheckbox-icon-checked--color;
+      }
+    }
+  }
+}

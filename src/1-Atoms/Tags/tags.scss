@@ -1,0 +1,61 @@
+//////////////////////////////////////////////////////////
+//  TAGS
+//////////////////////////////////////////////////////////
+$tag-background: $primary-color;
+$tag-color: $white;
+$tag-font-size: .75rem;
+$tag-radius: $global-radius;
+
+//////////////////////////////////////////////////////////
+//  TAGS > MARKUP
+//////////////////////////////////////////////////////////
+@mixin frontlab-tags {
+  .tag {
+    position: relative;
+    display: inline-block;
+    padding: 0 rhythm(.5);
+    vertical-align: top;
+    white-space: nowrap;
+    margin-right: rhythm(.125);
+    border-radius: $tag-radius;
+    text-transform: uppercase;
+    @include adjust-font-size-to($tag-font-size);
+    background: $tag-background;
+    color: $tag-color;
+
+    // -- Colors
+    @each $name, $color in $base-palette {
+      &.is-#{$name} {
+        background: $color;
+        color: mix($color, $white, 10%);
+
+        @if $name == light {
+          color: $primary-color;
+        }
+      }
+    }
+
+    @each $name, $color in $helpers-palette {
+      &.is-#{$name} {
+        background: $color;
+        color: mix($color, $white, 10%);
+      }
+    }
+
+    // -- Rounded
+    &.is-rounded {
+      border-radius: 2em;
+    }
+
+    // -- Close Button
+    &.is-closable {
+      @include padding(right, 1);
+
+      .button-close {
+        font-size: 1.25rem;
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+    }
+  }
+}

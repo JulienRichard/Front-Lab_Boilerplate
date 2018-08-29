@@ -1,0 +1,71 @@
+//////////////////////////////////////////////////////////
+// ICONS > FontAwesome
+// https://fontawesome.com/free
+//////////////////////////////////////////////////////////
+// Fonts Path
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+
+// Styles Prefix
+$fa-regular-prefix: 'far';
+$fa-solid-prefix: 'fas';
+$fa-brand-prefix: 'fab';
+
+// Import Icons
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/variables';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/icons';
+
+// FontAwesome 5 Free - Regular (font-weight: 400)
+// ------------------------------------------------
+@font-face {
+  font-family: 'FontAwesome5Free';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$fa-font-path}/fa-regular-400.eot');
+  src: url('#{$fa-font-path}/fa-regular-400.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-regular-400.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-regular-400.woff') format('woff'),
+    url('#{$fa-font-path}/fa-regular-400.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-regular-400.svg#fontawesome') format('svg');
+}
+
+.#{$fa-regular-prefix} {
+  font-family: 'FontAwesome5Free';
+  font-weight: 400;
+}
+
+// FontAwesome 5 Free - Solid (font-weight: 900)
+// ----------------------------------------------
+@font-face {
+  font-family: 'FontAwesome5Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url('#{$fa-font-path}/fa-solid-900.eot');
+  src: url('#{$fa-font-path}/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-solid-900.woff') format('woff'),
+    url('#{$fa-font-path}/fa-solid-900.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-solid-900.svg#fontawesome') format('svg');
+}
+
+.#{$fa-solid-prefix} {
+  font-family: 'FontAwesome5Free';
+  font-weight: 900;
+}
+
+// FontAwesome 5 Free - Brands
+// ----------------------------
+@font-face {
+  font-family: 'FontAwesome5Free-Brands';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$fa-font-path}/fa-brands-400.eot');
+  src: url('#{$fa-font-path}/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-brands-400.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-brands-400.woff') format('woff'),
+    url('#{$fa-font-path}/fa-brands-400.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-brands-400.svg#fontawesome') format('svg');
+}
+
+.#{$fa-brand-prefix} {
+  font-family: 'FontAwesome5Free-Brands';
+}

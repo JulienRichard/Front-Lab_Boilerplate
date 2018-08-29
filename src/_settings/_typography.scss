@@ -1,0 +1,131 @@
+//////////////////////////////////////////////////////////
+// SETTINGS > Typography
+//////////////////////////////////////////////////////////
+// @import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700');
+$font-family-regular: 'blogger_regular', sans-serif;
+$font-family-light: 'blogger_light', sans-serif;
+$font-family-medium: 'blogger_medium', sans-serif;
+$font-family-bold: 'blogger_bold', sans-serif;
+
+// FONT SIZES
+// ---------------------------
+$lead-font-size: 120%;
+$small-font-size: 80%;
+
+// GLOBAL
+// ---------------------------
+$body-font-family: $font-family-regular;
+$body-font-color: $white;
+
+// HR
+// ---------------------------
+$hr-height: 4px;
+$hr-width: 60px;
+$hr-color: $white;
+
+// LINK
+// ---------------------------
+$anchor-selector: 'link';
+$anchor-type: slide; // [slide | background | scale | border]
+$anchor-color: $white;
+$anchor-color-alt: $secondary-color;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+$anchor-transition-timing: .3s;
+$anchor-transition-easing: ease;
+$anchor-effect-color-hover: $white;
+$anchor-effect-background-hover: $anchor-color;
+
+// LISTS
+// --------------------------
+$list-side-margin: 1.25rem;
+$list-nested-side-margin: 1.25rem;
+$defnlist-term-weight: normal;
+
+// BLOCKQUOTE
+// --------------------------
+$blockquote-color: $white;
+$blockquote-border: 5px solid $highlight-color;
+$blockquote-font-weight: 400;
+$cite-font-weight: 400;
+$cite-color: rgba($white, .5);
+$cite-quote-icon: '\f201';
+
+// KEYSTROKE
+// ---------------------------
+$keystroke-font: Consolas, 'Liberation Mono', Courier, monospace;
+$keystroke-color: $white;
+$keystroke-background: $primary-color;
+
+// CODE
+// ---------------------------
+$code-color: $white;
+$code-font-family: inherit;
+$code-font-weight: normal;
+$code-background: rgba($white, .15);
+$code-border: 1px solid rgba($white, .25);
+
+// OTHER
+// ---------------------------
+$abbr-underline: 1px solid $highlight-color;
+
+// HEADERS
+// ---------------------------
+// Sizes (http://type-scale.com/)
+$headers-size: (
+  small: (
+    'h1': 2.441rem,
+    'h2': 1.953rem,
+    'h3': 1.563rem,
+    'h4': 1.25rem,
+    'h5': 1rem,
+    'h6': 1rem
+  ),
+  medium: (
+    'h1': 3.998rem,
+    'h2': 2.827rem,
+    'h3': 1.999rem,
+    'h4': 1.414rem,
+    'h5': 1rem,
+    'h6': 1rem
+  )
+);
+
+// -- H# FontFamily
+$headers-fonts: (
+  'h1': $font-family-medium,
+  'h2': $font-family-bold,
+  'h3': $font-family-medium,
+  'h4': $font-family-regular,
+  'h5': $font-family-bold,
+  'h6': $font-family-medium
+);
+
+// -- H# Colors
+$headers-color: (
+  default: (
+    'h1': $white,
+    'h2': $white,
+    'h3': $white,
+    'h4': $white,
+    'h5': $white,
+    'h6': $white
+  ),
+  lightTheme: (
+    'h1': $primary-color,
+    'h2': $primary-color,
+    'h3': $secondary-color,
+    'h4': $highlight-color,
+    'h5': $primary-color-darken,
+    'h6': $primary-color-darken
+  ),
+  darkTheme: (
+    'h1': $primary-color,
+    'h2': $primary-color,
+    'h3': $secondary-color-lighten,
+    'h4': $highlight-color-lighten,
+    'h5': $white,
+    'h6': $white
+  )
+);

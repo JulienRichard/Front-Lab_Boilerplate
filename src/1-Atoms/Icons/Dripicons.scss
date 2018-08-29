@@ -1,0 +1,820 @@
+//////////////////////////////////////////////////////////
+// ICONS > Dripicons
+// http://demo.amitjakhu.com/dripicons/
+//////////////////////////////////////////////////////////
+$dripicons-fonts-path: 'assets/fonts/Dripicons';
+$dripicons-css-prefix: 'di';
+
+@font-face {
+  font-family: 'dripicons';
+  src: url('#{$dripicons-fonts-path}/dripicons-v2.eot');
+  src: url('#{$dripicons-fonts-path}/dripicons-v2.eot?#iefix') format('embedded-opentype'),
+    url('#{$dripicons-fonts-path}/dripicons-v2.ttf') format('truetype'),
+    url('#{$dripicons-fonts-path}/dripicons-v2.svg#dripicons') format('svg'),
+    url('#{$dripicons-fonts-path}/dripicons-v2.woff') format('woff');
+}
+
+[class^='#{$dripicons-css-prefix}-'],
+[class*=' #{$dripicons-css-prefix}-'] {
+  font-family: 'dripicons';
+}
+
+.#{$dripicons-css-prefix}-alarm::before {
+  content: '\61';
+}
+
+.#{$dripicons-css-prefix}-align-center::before {
+  content: '\62';
+}
+
+.#{$dripicons-css-prefix}-align-justify::before {
+  content: '\63';
+}
+
+.#{$dripicons-css-prefix}-align-left::before {
+  content: '\64';
+}
+
+.#{$dripicons-css-prefix}-align-right::before {
+  content: '\65';
+}
+
+.#{$dripicons-css-prefix}-anchor::before {
+  content: '\66';
+}
+
+.#{$dripicons-css-prefix}-archive::before {
+  content: '\67';
+}
+
+.#{$dripicons-css-prefix}-arrow-down::before {
+  content: '\68';
+}
+
+.#{$dripicons-css-prefix}-arrow-left::before {
+  content: '\69';
+}
+
+.#{$dripicons-css-prefix}-arrow-right::before {
+  content: '\6a';
+}
+
+.#{$dripicons-css-prefix}-arrow-thin-down::before {
+  content: '\6b';
+}
+
+.#{$dripicons-css-prefix}-arrow-thin-left::before {
+  content: '\6c';
+}
+
+.#{$dripicons-css-prefix}-arrow-thin-right::before {
+  content: '\6d';
+}
+
+.#{$dripicons-css-prefix}-arrow-thin-up::before {
+  content: '\6e';
+}
+
+.#{$dripicons-css-prefix}-arrow-up::before {
+  content: '\6f';
+}
+
+.#{$dripicons-css-prefix}-article::before {
+  content: '\70';
+}
+
+.#{$dripicons-css-prefix}-backspace::before {
+  content: '\71';
+}
+
+.#{$dripicons-css-prefix}-basket::before {
+  content: '\72';
+}
+
+.#{$dripicons-css-prefix}-basketball::before {
+  content: '\73';
+}
+
+.#{$dripicons-css-prefix}-battery-empty::before {
+  content: '\74';
+}
+
+.#{$dripicons-css-prefix}-battery-full::before {
+  content: '\75';
+}
+
+.#{$dripicons-css-prefix}-battery-low::before {
+  content: '\76';
+}
+
+.#{$dripicons-css-prefix}-battery-medium::before {
+  content: '\77';
+}
+
+.#{$dripicons-css-prefix}-bell::before {
+  content: '\78';
+}
+
+.#{$dripicons-css-prefix}-blog::before {
+  content: '\79';
+}
+
+.#{$dripicons-css-prefix}-bluetooth::before {
+  content: '\7a';
+}
+
+.#{$dripicons-css-prefix}-bold::before {
+  content: '\41';
+}
+
+.#{$dripicons-css-prefix}-bookmark::before {
+  content: '\42';
+}
+
+.#{$dripicons-css-prefix}-bookmarks::before {
+  content: '\43';
+}
+
+.#{$dripicons-css-prefix}-box::before {
+  content: '\44';
+}
+
+.#{$dripicons-css-prefix}-briefcase::before {
+  content: '\45';
+}
+
+.#{$dripicons-css-prefix}-brightness-low::before {
+  content: '\46';
+}
+
+.#{$dripicons-css-prefix}-brightness-max::before {
+  content: '\47';
+}
+
+.#{$dripicons-css-prefix}-brightness-medium::before {
+  content: '\48';
+}
+
+.#{$dripicons-css-prefix}-broadcast::before {
+  content: '\49';
+}
+
+.#{$dripicons-css-prefix}-browser::before {
+  content: '\4a';
+}
+
+.#{$dripicons-css-prefix}-browser-upload::before {
+  content: '\4b';
+}
+
+.#{$dripicons-css-prefix}-brush::before {
+  content: '\4c';
+}
+
+.#{$dripicons-css-prefix}-calendar::before {
+  content: '\4d';
+}
+
+.#{$dripicons-css-prefix}-camcorder::before {
+  content: '\4e';
+}
+
+.#{$dripicons-css-prefix}-camera::before {
+  content: '\4f';
+}
+
+.#{$dripicons-css-prefix}-card::before {
+  content: '\50';
+}
+
+.#{$dripicons-css-prefix}-cart::before {
+  content: '\51';
+}
+
+.#{$dripicons-css-prefix}-checklist::before {
+  content: '\52';
+}
+
+.#{$dripicons-css-prefix}-checkmark::before {
+  content: '\53';
+}
+
+.#{$dripicons-css-prefix}-chevron-down::before {
+  content: '\54';
+}
+
+.#{$dripicons-css-prefix}-chevron-left::before {
+  content: '\55';
+}
+
+.#{$dripicons-css-prefix}-chevron-right::before {
+  content: '\56';
+}
+
+.#{$dripicons-css-prefix}-chevron-up::before {
+  content: '\57';
+}
+
+.#{$dripicons-css-prefix}-clipboard::before {
+  content: '\58';
+}
+
+.#{$dripicons-css-prefix}-clock::before {
+  content: '\59';
+}
+
+.#{$dripicons-css-prefix}-clockwise::before {
+  content: '\5a';
+}
+
+.#{$dripicons-css-prefix}-cloud::before {
+  content: '\30';
+}
+
+.#{$dripicons-css-prefix}-cloud-download::before {
+  content: '\31';
+}
+
+.#{$dripicons-css-prefix}-cloud-upload::before {
+  content: '\32';
+}
+
+.#{$dripicons-css-prefix}-code::before {
+  content: '\33';
+}
+
+.#{$dripicons-css-prefix}-contract::before {
+  content: '\34';
+}
+
+.#{$dripicons-css-prefix}-contract-2::before {
+  content: '\35';
+}
+
+.#{$dripicons-css-prefix}-conversation::before {
+  content: '\36';
+}
+
+.#{$dripicons-css-prefix}-copy::before {
+  content: '\37';
+}
+
+.#{$dripicons-css-prefix}-crop::before {
+  content: '\38';
+}
+
+.#{$dripicons-css-prefix}-cross::before {
+  content: '\39';
+}
+
+.#{$dripicons-css-prefix}-crosshair::before {
+  content: '\21';
+}
+
+.#{$dripicons-css-prefix}-cutlery::before {
+  content: '\22';
+}
+
+.#{$dripicons-css-prefix}-device-desktop::before {
+  content: '\23';
+}
+
+.#{$dripicons-css-prefix}-device-mobile::before {
+  content: '\24';
+}
+
+.#{$dripicons-css-prefix}-device-tablet::before {
+  content: '\25';
+}
+
+.#{$dripicons-css-prefix}-direction::before {
+  content: '\26';
+}
+
+.#{$dripicons-css-prefix}-disc::before {
+  content: '\27';
+}
+
+.#{$dripicons-css-prefix}-document::before {
+  content: '\28';
+}
+
+.#{$dripicons-css-prefix}-document-delete::before {
+  content: '\29';
+}
+
+.#{$dripicons-css-prefix}-document-edit::before {
+  content: '\2a';
+}
+
+.#{$dripicons-css-prefix}-document-new::before {
+  content: '\2b';
+}
+
+.#{$dripicons-css-prefix}-document-remove::before {
+  content: '\2c';
+}
+
+.#{$dripicons-css-prefix}-dot::before {
+  content: '\2d';
+}
+
+.#{$dripicons-css-prefix}-dots-2::before {
+  content: '\2e';
+}
+
+.#{$dripicons-css-prefix}-dots-3::before {
+  content: '\2f';
+}
+
+.#{$dripicons-css-prefix}-download::before {
+  content: '\3a';
+}
+
+.#{$dripicons-css-prefix}-duplicate::before {
+  content: '\3b';
+}
+
+.#{$dripicons-css-prefix}-enter::before {
+  content: '\3c';
+}
+
+.#{$dripicons-css-prefix}-exit::before {
+  content: '\3d';
+}
+
+.#{$dripicons-css-prefix}-expand::before {
+  content: '\3e';
+}
+
+.#{$dripicons-css-prefix}-expand-2::before {
+  content: '\3f';
+}
+
+.#{$dripicons-css-prefix}-experiment::before {
+  content: '\40';
+}
+
+.#{$dripicons-css-prefix}-export::before {
+  content: '\5b';
+}
+
+.#{$dripicons-css-prefix}-feed::before {
+  content: '\5d';
+}
+
+.#{$dripicons-css-prefix}-flag::before {
+  content: '\5e';
+}
+
+.#{$dripicons-css-prefix}-flashlight::before {
+  content: '\5f';
+}
+
+.#{$dripicons-css-prefix}-folder::before {
+  content: '\60';
+}
+
+.#{$dripicons-css-prefix}-folder-open::before {
+  content: '\7b';
+}
+
+.#{$dripicons-css-prefix}-forward::before {
+  content: '\7c';
+}
+
+.#{$dripicons-css-prefix}-gaming::before {
+  content: '\7d';
+}
+
+.#{$dripicons-css-prefix}-gear::before {
+  content: '\7e';
+}
+
+.#{$dripicons-css-prefix}-graduation::before {
+  content: '\5c';
+}
+
+.#{$dripicons-css-prefix}-graph-bar::before {
+  content: '\e000';
+}
+
+.#{$dripicons-css-prefix}-graph-line::before {
+  content: '\e001';
+}
+
+.#{$dripicons-css-prefix}-graph-pie::before {
+  content: '\e002';
+}
+
+.#{$dripicons-css-prefix}-headset::before {
+  content: '\e003';
+}
+
+.#{$dripicons-css-prefix}-heart::before {
+  content: '\e004';
+}
+
+.#{$dripicons-css-prefix}-help::before {
+  content: '\e005';
+}
+
+.#{$dripicons-css-prefix}-home::before {
+  content: '\e006';
+}
+
+.#{$dripicons-css-prefix}-hourglass::before {
+  content: '\e007';
+}
+
+.#{$dripicons-css-prefix}-inbox::before {
+  content: '\e008';
+}
+
+.#{$dripicons-css-prefix}-information::before {
+  content: '\e009';
+}
+
+.#{$dripicons-css-prefix}-italic::before {
+  content: '\e00a';
+}
+
+.#{$dripicons-css-prefix}-jewel::before {
+  content: '\e00b';
+}
+
+.#{$dripicons-css-prefix}-lifting::before {
+  content: '\e00c';
+}
+
+.#{$dripicons-css-prefix}-lightbulb::before {
+  content: '\e00d';
+}
+
+.#{$dripicons-css-prefix}-link::before {
+  content: '\e00e';
+}
+
+.#{$dripicons-css-prefix}-link-broken::before {
+  content: '\e00f';
+}
+
+.#{$dripicons-css-prefix}-list::before {
+  content: '\e010';
+}
+
+.#{$dripicons-css-prefix}-loading::before {
+  content: '\e011';
+}
+
+.#{$dripicons-css-prefix}-location::before {
+  content: '\e012';
+}
+
+.#{$dripicons-css-prefix}-lock::before {
+  content: '\e013';
+}
+
+.#{$dripicons-css-prefix}-lock-open::before {
+  content: '\e014';
+}
+
+.#{$dripicons-css-prefix}-mail::before {
+  content: '\e015';
+}
+
+.#{$dripicons-css-prefix}-map::before {
+  content: '\e016';
+}
+
+.#{$dripicons-css-prefix}-media-loop::before {
+  content: '\e017';
+}
+
+.#{$dripicons-css-prefix}-media-next::before {
+  content: '\e018';
+}
+
+.#{$dripicons-css-prefix}-media-pause::before {
+  content: '\e019';
+}
+
+.#{$dripicons-css-prefix}-media-play::before {
+  content: '\e01a';
+}
+
+.#{$dripicons-css-prefix}-media-previous::before {
+  content: '\e01b';
+}
+
+.#{$dripicons-css-prefix}-media-record::before {
+  content: '\e01c';
+}
+
+.#{$dripicons-css-prefix}-media-shuffle::before {
+  content: '\e01d';
+}
+
+.#{$dripicons-css-prefix}-media-stop::before {
+  content: '\e01e';
+}
+
+.#{$dripicons-css-prefix}-medical::before {
+  content: '\e01f';
+}
+
+.#{$dripicons-css-prefix}-menu::before {
+  content: '\e020';
+}
+
+.#{$dripicons-css-prefix}-message::before {
+  content: '\e021';
+}
+
+.#{$dripicons-css-prefix}-meter::before {
+  content: '\e022';
+}
+
+.#{$dripicons-css-prefix}-microphone::before {
+  content: '\e023';
+}
+
+.#{$dripicons-css-prefix}-minus::before {
+  content: '\e024';
+}
+
+.#{$dripicons-css-prefix}-monitor::before {
+  content: '\e025';
+}
+
+.#{$dripicons-css-prefix}-move::before {
+  content: '\e026';
+}
+
+.#{$dripicons-css-prefix}-music::before {
+  content: '\e027';
+}
+
+.#{$dripicons-css-prefix}-network-1::before {
+  content: '\e028';
+}
+
+.#{$dripicons-css-prefix}-network-2::before {
+  content: '\e029';
+}
+
+.#{$dripicons-css-prefix}-network-3::before {
+  content: '\e02a';
+}
+
+.#{$dripicons-css-prefix}-network-4::before {
+  content: '\e02b';
+}
+
+.#{$dripicons-css-prefix}-network-5::before {
+  content: '\e02c';
+}
+
+.#{$dripicons-css-prefix}-pamphlet::before {
+  content: '\e02d';
+}
+
+.#{$dripicons-css-prefix}-paperclip::before {
+  content: '\e02e';
+}
+
+.#{$dripicons-css-prefix}-pencil::before {
+  content: '\e02f';
+}
+
+.#{$dripicons-css-prefix}-phone::before {
+  content: '\e030';
+}
+
+.#{$dripicons-css-prefix}-photo::before {
+  content: '\e031';
+}
+
+.#{$dripicons-css-prefix}-photo-group::before {
+  content: '\e032';
+}
+
+.#{$dripicons-css-prefix}-pill::before {
+  content: '\e033';
+}
+
+.#{$dripicons-css-prefix}-pin::before {
+  content: '\e034';
+}
+
+.#{$dripicons-css-prefix}-plus::before {
+  content: '\e035';
+}
+
+.#{$dripicons-css-prefix}-power::before {
+  content: '\e036';
+}
+
+.#{$dripicons-css-prefix}-preview::before {
+  content: '\e037';
+}
+
+.#{$dripicons-css-prefix}-print::before {
+  content: '\e038';
+}
+
+.#{$dripicons-css-prefix}-pulse::before {
+  content: '\e039';
+}
+
+.#{$dripicons-css-prefix}-question::before {
+  content: '\e03a';
+}
+
+.#{$dripicons-css-prefix}-reply::before {
+  content: '\e03b';
+}
+
+.#{$dripicons-css-prefix}-reply-all::before {
+  content: '\e03c';
+}
+
+.#{$dripicons-css-prefix}-return::before {
+  content: '\e03d';
+}
+
+.#{$dripicons-css-prefix}-retweet::before {
+  content: '\e03e';
+}
+
+.#{$dripicons-css-prefix}-rocket::before {
+  content: '\e03f';
+}
+
+.#{$dripicons-css-prefix}-scale::before {
+  content: '\e040';
+}
+
+.#{$dripicons-css-prefix}-search::before {
+  content: '\e041';
+}
+
+.#{$dripicons-css-prefix}-shopping-bag::before {
+  content: '\e042';
+}
+
+.#{$dripicons-css-prefix}-skip::before {
+  content: '\e043';
+}
+
+.#{$dripicons-css-prefix}-stack::before {
+  content: '\e044';
+}
+
+.#{$dripicons-css-prefix}-star::before {
+  content: '\e045';
+}
+
+.#{$dripicons-css-prefix}-stopwatch::before {
+  content: '\e046';
+}
+
+.#{$dripicons-css-prefix}-store::before {
+  content: '\e047';
+}
+
+.#{$dripicons-css-prefix}-suitcase::before {
+  content: '\e048';
+}
+
+.#{$dripicons-css-prefix}-swap::before {
+  content: '\e049';
+}
+
+.#{$dripicons-css-prefix}-tag::before {
+  content: '\e04a';
+}
+
+.#{$dripicons-css-prefix}-tag-delete::before {
+  content: '\e04b';
+}
+
+.#{$dripicons-css-prefix}-tags::before {
+  content: '\e04c';
+}
+
+.#{$dripicons-css-prefix}-thumbs-down::before {
+  content: '\e04d';
+}
+
+.#{$dripicons-css-prefix}-thumbs-up::before {
+  content: '\e04e';
+}
+
+.#{$dripicons-css-prefix}-ticket::before {
+  content: '\e04f';
+}
+
+.#{$dripicons-css-prefix}-time-reverse::before {
+  content: '\e050';
+}
+
+.#{$dripicons-css-prefix}-to-do::before {
+  content: '\e051';
+}
+
+.#{$dripicons-css-prefix}-toggles::before {
+  content: '\e052';
+}
+
+.#{$dripicons-css-prefix}-trash::before {
+  content: '\e053';
+}
+
+.#{$dripicons-css-prefix}-trophy::before {
+  content: '\e054';
+}
+
+.#{$dripicons-css-prefix}-upload::before {
+  content: '\e055';
+}
+
+.#{$dripicons-css-prefix}-user::before {
+  content: '\e056';
+}
+
+.#{$dripicons-css-prefix}-user-group::before {
+  content: '\e057';
+}
+
+.#{$dripicons-css-prefix}-user-id::before {
+  content: '\e058';
+}
+
+.#{$dripicons-css-prefix}-vibrate::before {
+  content: '\e059';
+}
+
+.#{$dripicons-css-prefix}-view-apps::before {
+  content: '\e05a';
+}
+
+.#{$dripicons-css-prefix}-view-list::before {
+  content: '\e05b';
+}
+
+.#{$dripicons-css-prefix}-view-list-large::before {
+  content: '\e05c';
+}
+
+.#{$dripicons-css-prefix}-view-thumb::before {
+  content: '\e05d';
+}
+
+.#{$dripicons-css-prefix}-volume-full::before {
+  content: '\e05e';
+}
+
+.#{$dripicons-css-prefix}-volume-low::before {
+  content: '\e05f';
+}
+
+.#{$dripicons-css-prefix}-volume-medium::before {
+  content: '\e060';
+}
+
+.#{$dripicons-css-prefix}-volume-off::before {
+  content: '\e061';
+}
+
+.#{$dripicons-css-prefix}-wallet::before {
+  content: '\e062';
+}
+
+.#{$dripicons-css-prefix}-warning::before {
+  content: '\e063';
+}
+
+.#{$dripicons-css-prefix}-web::before {
+  content: '\e064';
+}
+
+.#{$dripicons-css-prefix}-weight::before {
+  content: '\e065';
+}
+
+.#{$dripicons-css-prefix}-wifi::before {
+  content: '\e066';
+}
+
+.#{$dripicons-css-prefix}-wrong::before {
+  content: '\e067';
+}
+
+.#{$dripicons-css-prefix}-zoom-in::before {
+  content: '\e068';
+}
+
+.#{$dripicons-css-prefix}-zoom-out::before {
+  content: '\e069';
+}

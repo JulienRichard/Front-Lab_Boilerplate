@@ -1,0 +1,180 @@
+//////////////////////////////////////////////////////////
+//  MENU BASE
+//////////////////////////////////////////////////////////
+// Global
+$menu-background: transparent;
+
+// Item
+$menu-item-padding-x: .5;
+$menu-item-padding-y: .5;
+$menu-item-transition: all .3s ease;
+
+$menu-item-color: $white;
+$menu-item-background: transparent;
+
+// Hover state
+$menu-item-color-hover: $white;
+$menu-item-background-hover: transparent;
+$menu-item-border-hover: $secondary-color;
+
+// Active state
+$menu-item-color-active: $white;
+$menu-item-background-active: transparent;
+$menu-item-border-active: $primary-color;
+
+// Exact Active state
+$menu-item-color-exact-active: $white;
+$menu-item-background-exact-active: transparent;
+$menu-item-border-exact-active: $highlight-color;
+
+//////////////////////////////////////////////////////////
+//  MENUS > MARKUP
+//////////////////////////////////////////////////////////
+@mixin frontlab-menus {
+  .menu {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    list-style-type: none;
+    background: $menu-background;
+
+    li {
+      a {
+        position: relative;
+        display: block;
+        color: $menu-item-color;
+        background: $menu-item-background;
+        transition: $menu-item-transition;
+        padding: rhythm($menu-item-padding-y) rhythm($menu-item-padding-x);
+
+        // Fix Vertical rhythm
+        .icon,
+        span {
+          vertical-align: middle;
+          margin-top: -2px;
+        }
+      }
+
+      // MENU TEXT
+      &.menu-text {
+        padding: rhythm($menu-item-padding-y) rhythm($menu-item-padding-x);
+        font-weight: $global-weight-bold;
+      }
+
+      // MENU ITEM CLASS
+      &.menu-item {
+        a {
+          margin: 0 rhythm(.5);
+
+          // Underline
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            transition: $menu-item-transition;
+          }
+
+          // Hover state
+          &:hover {
+            color: $menu-item-color-hover;
+            background: $menu-item-background-hover;
+
+            &::after {
+              width: 100%;
+              background-color: $menu-item-border-hover;
+            }
+          }
+
+          &:hover,
+          &.router-link-active:hover {
+            &::after {
+              width: 100%;
+              background-color: $menu-item-border-hover;
+            }
+          }
+
+          // Active state
+          &.router-link-active {
+            color: $menu-item-color-active;
+            background: $menu-item-background-active;
+
+            &::after {
+              width: 25%;
+              background-color: $menu-item-border-active;
+            }
+
+            &:hover::after {
+              width: 100%;
+            }
+          }
+
+          // Exact Active state
+          &.router-link-exact-active {
+            color: $menu-item-color-exact-active;
+            background: $menu-item-background-exact-active;
+
+            &::after {
+              width: 100%;
+              background-color: $menu-item-border-exact-active;
+            }
+          }
+        }
+
+        > span,
+        > i {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    // Vertical
+    &.is-vertical {
+      flex-wrap: wrap;
+
+      > li {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      li.menu-item a {
+        margin: 0;
+      }
+    }
+
+    // Align Center
+    &.is-align-center {
+      justify-content: center;
+
+      > li > a {
+        text-align: center;
+      }
+    }
+
+    // Align Right
+    &.is-align-right {
+      justify-content: flex-end;
+    }
+
+    // Expanded
+    &.is-expanded {
+      > li {
+        flex: 1 1 0;
+        text-align: center;
+
+        li {
+          text-align: left;
+        }
+      }
+
+      > li:first-child:last-child {
+        width: 100%;
+      }
+    }
+  }
+}

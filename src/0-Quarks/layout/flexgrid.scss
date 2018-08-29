@@ -1,0 +1,184 @@
+//////////////////////////////////////////////////////////
+//  FLEXGRID
+//////////////////////////////////////////////////////////
+@mixin frontlab-flex-grid {
+  // Row
+  .row {
+    @include flex-grid-row(nest);
+
+    // Nesting behavior
+    &.row {
+      @include flex-grid-row(nest, $base: false);
+    }
+
+    // Expanded row
+    &.expanded {
+      @include grid-row-size(expand);
+    }
+
+    // Collapse XY
+    &.collapse,
+    &.is-collapse {
+      @include flex-grid-row($base: false);
+
+      > .column {
+        @include grid-col-collapse;
+        margin-bottom: 0;
+      }
+    }
+
+    // Collapse Y
+    &.collapse-y,
+    &.is-collapse-y {
+      > .column {
+        margin-bottom: 0;
+      }
+    }
+
+    // Undo negative margins
+    // From collapsed child
+    &.is-collapse-child,
+    &.collapse > .column > .row,
+    &.is-collapse > .column > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  // Column
+  .column,
+  .columns {
+    @include flex-grid-column;
+    margin-bottom: rhythm(1);
+  }
+
+  // Column row
+  // The double .row class is needed to bump up the specificity
+  .column.row.row {
+    display: flex;
+  }
+
+  // To properly nest a column row, padding and margin is removed
+  .row .column.row.row {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .flex-container {
+    @include flex;
+  }
+
+  .flex-child-auto {
+    flex: 1 1 auto;
+  }
+
+  .flex-child-grow {
+    flex: 1 0 auto;
+  }
+
+  .flex-child-shrink {
+    flex: 0 1 auto;
+  }
+
+  @each $dir, $prop in $-zf-flex-direction {
+    .flex-dir-#{$dir} {
+      @include flex-direction($prop);
+    }
+  }
+
+  @include -zf-each-breakpoint {
+    @for $i from 1 through $grid-column-count {
+      // Offsets
+      $o: $i - 1;
+
+      .#{$-zf-size}-offset-#{$o} {
+        @include grid-column-offset($o);
+      }
+
+      // Sizing (percentage)
+      .#{$-zf-size}-#{$i} {
+        flex: flex-grid-column($i);
+        max-width: grid-column($i);
+      }
+    }
+
+    // Source ordering
+    @for $i from 1 through 6 {
+      .#{$-zf-size}-order-#{$i} {
+        @include flex-order($i);
+      }
+    }
+
+    // Block grid
+    @for $i from 1 through $block-grid-max {
+      .#{$-zf-size}-up-#{$i} {
+        @include flex-grid-layout($i);
+      }
+    }
+
+    @if $-zf-size != $-zf-zero-breakpoint {
+      // Sizing (expand)
+      @include breakpoint($-zf-size) {
+        .#{$-zf-size}-expand {
+          flex: flex-grid-column();
+        }
+      }
+
+      // direction helper classes
+      @each $dir, $prop in $-zf-flex-direction {
+        .#{$-zf-size}-flex-dir-#{$dir} {
+          @include flex-direction($prop);
+        }
+      }
+      // child helper classes
+      .#{$-zf-size}-flex-child-auto {
+        flex: 1 1 auto;
+      }
+
+      .#{$-zf-size}-flex-child-grow {
+        flex: 1 0 auto;
+      }
+
+      .#{$-zf-size}-flex-child-shrink {
+        flex: 0 1 auto;
+      }
+
+      // Auto-stacking/unstacking
+      @at-root (without: media) {
+        .row.#{$-zf-size}-unstack {
+          > .column {
+            flex: flex-grid-column(100%);
+
+            @include breakpoint($-zf-size) {
+              flex: flex-grid-column();
+            }
+          }
+        }
+      }
+    }
+
+    // Responsive collapsing
+    .#{$-zf-size}-collapse {
+      > .column { @include grid-col-collapse; }
+    }
+
+    .#{$-zf-size}-uncollapse {
+      > .column { @include grid-col-gutter($-zf-size); }
+    }
+  }
+
+  // HELPERS
+  .column.text-center {
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  // Sizing (shrink)
+  .shrink {
+    flex: flex-grid-column(shrink);
+    max-width: 100%;
+  }
+}

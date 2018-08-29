@@ -1,0 +1,38 @@
+//////////////////////////////////////////////////////////
+// BOXES
+//////////////////////////////////////////////////////////
+$box--border-radius: $global-radius;
+$box--bg-color: rgba($white, .05);
+$box--border: 0;
+$box--box-shadow: $global-box-shadow;
+
+// MIXIN
+// -------------------------
+@mixin _box {
+  position: relative;
+  // padding: rhythm(1);
+  margin-bottom: rhythm(1);
+  background-color: $box--bg-color;
+  border: $box--border;
+  border-radius: $box--border-radius;
+  box-shadow: $box--box-shadow;
+}
+
+// MARKUP
+// -------------------------
+@mixin frontlab-boxes {
+  .box {
+    // -- DEFAULT STYLES
+    @include _box;
+    overflow: hidden;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    // -- COLLAPSE
+    &.is-collapse {
+      padding: 0;
+    }
+  }
+}

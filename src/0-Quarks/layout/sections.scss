@@ -1,0 +1,47 @@
+//////////////////////////////////////////////////////////
+//  SECTIONS
+//////////////////////////////////////////////////////////
+$section-selector: 'section';
+
+// MIXIN
+// --------------
+@mixin _section($size: default, $bg-color: transparent) {
+  position: relative;
+  background-color: $bg-color;
+  @include padding(top, map-get($section-sizes, $size));
+  @include padding(bottom, map-get($section-sizes, $size));
+}
+
+// MARKUP
+// --------------
+@mixin frontlab-sections {
+  .#{$section-selector} {
+    @include _section;
+
+    // -- SIZES
+    @each $size, $value in $section-sizes {
+      @if $size != default {
+        &.is-#{$size} {
+          @include padding(top, map-get($section-sizes, $size));
+          @include padding(bottom, map-get($section-sizes, $size));
+        }
+      }
+    }
+
+    // Full Window Height
+    &.is-full {
+      position: relative;
+      min-height: 100vh;
+      @include padding(top, map-get($section-sizes, huge));
+      @include padding(bottom, map-get($section-sizes, huge));
+    }
+
+    // -- COLORS
+    @each $name, $color in $full-palette {
+      &.is-#{$name} {
+        background-color: $color;
+        color: smart-scale($color, 60%);
+      }
+    }
+  }
+}

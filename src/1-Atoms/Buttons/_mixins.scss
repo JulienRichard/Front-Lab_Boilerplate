@@ -1,0 +1,155 @@
+//////////////////////////////////////////////////////////
+// BUTTONS > Mixins
+//////////////////////////////////////////////////////////
+@mixin _button(
+  $style: $button-fill,
+  $size: default,
+  $rounded: false,
+  $bg-color: $button-background-color,
+  $bg-color-hover: $button-background-color-hover,
+  $txt-color: $button-txt-color,
+  $txt-color-hover: $button-txt-color-hover,
+  $expand: false
+) {
+
+  // -- BASE
+  @include _button-base;
+
+  // -- SIZE
+  @include adjust-font-size-to(map-get($button-sizes, default));
+  @include padding-block(.5, .75, .5, .75);
+  @include margin(bottom, 1);
+
+  @if $size == tiny {
+    @include adjust-font-size-to(map-get($button-sizes, tiny));
+    @include padding-block(0, .25, 0, .25);
+  }
+
+  @if $size == small {
+    @include adjust-font-size-to(map-get($button-sizes, small));
+    @include padding-block(.25, .5, .25, .5);
+    @include margin(bottom, .5);
+  }
+  @if $size == large {
+    @include adjust-font-size-to(map-get($button-sizes, large));
+    @include padding-block(.5, 1, .5, 1);
+  }
+
+  // -- STYLE
+  @if $style == solid {
+    @include _button-solid($bg-color, $bg-color-hover, $txt-color, $txt-color-hover);
+  } @else if $style == hollow {
+    @include _button-hollow($bg-color, $bg-color, $txt-color-hover);
+  }
+
+  // -- ROUNDED
+  @if $rounded == true {
+    border-radius: 2em;
+  }
+
+  // -- EXPAND
+  @if $expand {
+    @include _button-expand;
+  }
+}
+
+// BUTTON > BASE
+// -------------------------
+@mixin _button-base {
+  @include disable-mouse-outline;
+  font-family: $body-font-family;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border: 0;
+  border-radius: $button-radius;
+  transition: background-color .25s ease-out, color .25s ease-out;
+
+  .icon {
+    margin-top: -3px;
+  }
+}
+
+// BUTTON > EXPAND
+// -------------------------
+@mixin _button-expand($expand: true) {
+  @if $expand {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  } @else {
+    display: inline-block;
+    width: auto;
+    margin: $button-margin;
+  }
+}
+
+// BUTTON > SOLID
+// -------------------------
+@mixin _button-solid(
+  $button-color: $button-color,
+  $background-hover: scale-color($button-color, $lightness: -30%),
+  $color: mix($button-color, $white, 20%),
+  $color-hover: $color
+) {
+
+  background-color: $button-color;
+  color: $color;
+
+  // Hover & Active State
+  &.is-active,
+  &:hover {
+    background-color: $background-hover;
+    color: $color-hover;
+  }
+}
+
+// BUTTON > HOLLOW
+// -------------------------
+@mixin _button-hollow(
+  $button-color: $button-background-color,
+  $color: $button-color,
+  $color-hover: mix($button-color, $white, 20%)
+) {
+
+  background-color: transparent;
+  color: $color;
+  box-shadow: inset 0 0 0 $button-hollow-border $button-color;
+
+  // Hover & Active State
+  &.is-active,
+  &:hover {
+    background-color: $button-color;
+    color: $color-hover;
+  }
+}
+
+// BUTTON > DISABLED
+// -------------------------
+@mixin _button-disabled {
+  opacity: $button-opacity-disabled;
+  cursor: not-allowed;
+  pointer-events: none;
+
+  &:hover {
+    background-color: $button-background;
+    color: $button-color;
+  }
+}
+
+// BUTTON DROPDOWN
+// -------------------------
+@mixin _button-dropdown(
+  $size: 1.5em,
+  $color: inherit
+) {
+  &::after {
+    @include _arrow($size, $color, down);
+    display: inline-block;
+    position: relative;
+    float: right;
+    margin-left: rhythm(.25);
+  }
+}

@@ -1,0 +1,50 @@
+//////////////////////////////////////////////////////////
+//  TYPOGRAPHY > FONTS
+//////////////////////////////////////////////////////////
+// -- Blogger Regular
+@font-face {
+  font-family: 'blogger_regular';
+  src: url('assets/fonts/Blogger/Regular/Blogger_Sans-webfont.eot');
+  src: url('assets/fonts/Blogger/Regular/Blogger_Sans-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/Blogger/Regular/Blogger_Sans-webfont.woff') format('woff'),
+    url('assets/fonts/Blogger/Regular/Blogger_Sans-webfont.ttf') format('truetype'),
+    url('assets/fonts/Blogger/Regular/Blogger_Sans-webfont.svg#blogger_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// -- Blogger Light
+@font-face {
+  font-family: 'blogger_light';
+  src: url('assets/fonts/Blogger/Light/Blogger_Sans-Light-webfont.eot');
+  src: url('assets/fonts/Blogger/Light/Blogger_Sans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/Blogger/Light/Blogger_Sans-Light-webfont.woff') format('woff'),
+    url('assets/fonts/Blogger/Light/Blogger_Sans-Light-webfont.ttf') format('truetype'),
+    url('assets/fonts/Blogger/Light/Blogger_Sans-Light-webfont.svg#blogger_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// -- Blogger Medium
+@font-face {
+  font-family: 'blogger_medium';
+  src: url('assets/fonts/Blogger/Medium/Blogger_Sans-Medium-webfont.eot');
+  src: url('assets/fonts/Blogger/Medium/Blogger_Sans-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/Blogger/Medium/Blogger_Sans-Medium-webfont.woff') format('woff'),
+    url('assets/fonts/Blogger/Medium/Blogger_Sans-Medium-webfont.ttf') format('truetype'),
+    url('assets/fonts/Blogger/Medium/Blogger_Sans-Medium-webfont.svg#blogger_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// -- Blogger Bold
+@font-face {
+  font-family: 'blogger_bold';
+  src: url('assets/fonts/Blogger/Bold/Blogger_Sans-Bold-webfont.eot');
+  src: url('assets/fonts/Blogger/Bold/Blogger_Sans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/Blogger/Bold/Blogger_Sans-Bold-webfont.woff') format('woff'),
+    url('assets/fonts/Blogger/Bold/Blogger_Sans-Bold-webfont.ttf') format('truetype'),
+    url('assets/fonts/Blogger/Bold/Blogger_Sans-Bold-webfont.svg#blogger_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

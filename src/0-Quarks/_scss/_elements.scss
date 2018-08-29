@@ -1,0 +1,25 @@
+//////////////////////////////////////////////////////////
+// _ELEMENTS MIXINS
+//////////////////////////////////////////////////////////
+
+//  ARROWS
+//	---------------
+@mixin _arrow( $size: inherit, $color: inherit, $direction: right ) {
+  display: inline-block;
+  font-family: 'FontAwesome5Free';
+  font-weight: 900;
+  font-size: $size;
+  color: $color;
+  @if ($direction == right) {
+    content: '\f054';
+  }
+  @if ($direction == left) {
+    content: '\f053';
+  }
+  @if ($direction == down) {
+    content: '\f078';
+  }
+  @if ($direction == up) {
+    content: '\f077';
+  }
+}

@@ -1,0 +1,52 @@
+//////////////////////////////////////////////////////////
+// RHYTHM CONFIG
+//////////////////////////////////////////////////////////
+// Import LibSass Vertical Rhythm
+@import '../tools/Rhythm/vertical-rhythm';
+
+// 	RHYTHM > CONFIG
+// 	-------------------------
+@mixin rhythm-config($font-size) {
+  $base-font-size: $font-size !global;
+  $base-line-height: $font-size * $global-rhythm !global;
+  $rhythm-unit: 'rem' !global;
+  $rem-with-px-fallback: false !global;
+  $grid-background-baseline-color: rgba($white, .15) !global;
+
+  // Gutters
+  $gutter-small: rhythm(.5) !global;
+  $gutter-half: rhythm(.5) !global;
+  $gutter: rhythm(1) !global;
+  $gutter-large: rhythm(2) !global;
+}
+
+// 	RHYTHM > INIT
+// 	-------------------------
+//	Small Screens
+@include rhythm-config($font-size_small-screen);
+
+//	Medium Screens
+@include breakpoint(medium) {
+  @include rhythm-config($font-size_medium-screen);
+}
+
+//	Large Screens
+@include breakpoint(large) {
+  @include rhythm-config($font-size_large-screen);
+}
+
+// RHYTHM > APPLY
+// 	-------------------------
+@mixin frontlab-rhythm {
+  @include establish-baseline($font-size_small-screen);
+
+  //	Medium Screens
+  @include breakpoint(medium) {
+    @include establish-baseline($font-size_medium-screen);
+  }
+
+  //	Large Screens
+  @include breakpoint(large) {
+    @include establish-baseline($font-size_large-screen);
+  }
+}
